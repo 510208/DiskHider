@@ -1,20 +1,26 @@
 VERSION 5.00
 Begin VB.Form LogFrm 
+   Appearance      =   0  '平面
+   BackColor       =   &H80000005&
+   BorderStyle     =   3  '雙線固定對話方塊
    Caption         =   "Form1"
    ClientHeight    =   3015
-   ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   5835
+   ClientLeft      =   45
+   ClientTop       =   390
+   ClientWidth     =   8685
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   3015
-   ScaleWidth      =   5835
+   ScaleWidth      =   8685
+   ShowInTaskbar   =   0   'False
    StartUpPosition =   3  '系統預設值
    Begin VB.PictureBox Picture2 
       Appearance      =   0  '平面
       BackColor       =   &H80000005&
       ForeColor       =   &H80000008&
       Height          =   375
-      Left            =   4680
+      Left            =   8280
       Picture         =   "LogFrm.frx":0000
       ScaleHeight     =   345
       ScaleWidth      =   345
@@ -28,7 +34,7 @@ Begin VB.Form LogFrm
       BackColor       =   &H80000005&
       ForeColor       =   &H80000008&
       Height          =   375
-      Left            =   4680
+      Left            =   8280
       Picture         =   "LogFrm.frx":09AA
       ScaleHeight     =   345
       ScaleWidth      =   345
@@ -57,7 +63,7 @@ Begin VB.Form LogFrm
       TabStop         =   0   'False
       Text            =   "LogFrm.frx":1354
       Top             =   0
-      Width           =   4575
+      Width           =   8295
    End
 End
 Attribute VB_Name = "LogFrm"
@@ -65,6 +71,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+    Me.Width = LogLbl.Width + Picture1.Width
+End Sub
+
 Private Sub LogLbl_Change()
     TxtSave
 End Sub

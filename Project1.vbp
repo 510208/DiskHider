@@ -5,6 +5,7 @@ Form=Main.frm
 Form=frmLogin.frm
 Module=LogModule; LogModule.bas
 Form=LogFrm.frm
+Form=frmAbout.frm
 IconForm="Main"
 Startup="Main"
 HelpFile=""

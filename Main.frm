@@ -98,8 +98,19 @@ Begin VB.Form Main
       End
       Begin VB.TextBox Text1 
          Appearance      =   0  '平面
-         Height          =   270
+         BeginProperty Font 
+            Name            =   "YaHei Consolas Hybrid"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         IMEMode         =   3  '暫止
          Left            =   1200
+         PasswordChar    =   "?"
          TabIndex        =   3
          Top             =   240
          Width           =   2415
@@ -166,6 +177,19 @@ Begin VB.Form Main
          Shortcut        =   ^F
       End
    End
+   Begin VB.Menu Helper 
+      Caption         =   "說明(&H)"
+      Begin VB.Menu LogFile 
+         Caption         =   "Log記錄檔(&L)"
+      End
+      Begin VB.Menu dash1 
+         Caption         =   "-"
+      End
+      Begin VB.Menu About 
+         Caption         =   "關於(&A)"
+         Shortcut        =   {F1}
+      End
+   End
 End
 Attribute VB_Name = "Main"
 Attribute VB_GlobalNameSpace = False
@@ -178,6 +202,10 @@ Option Explicit
 Dim ExtractInfo As Boolean
 Dim MainWidthAndHeight(1) As Long
 Dim pwdIsNA As Boolean
+
+Private Sub About_Click()
+    frmAbout.Show
+End Sub
 
 Private Sub ChangePWD_Click()
     If ExtractInfo Then
@@ -200,7 +228,7 @@ Private Sub ChangePWD_Click()
             End If
         End If
     Else
-        MsgBox "錯誤！" & vbNewLine & "您尚未解密，解密後再試試。", vbCritical
+        MsgBox "錯誤！" & vbNewLine & "您尚未解密或建立虛擬磁碟，解密或建立虛擬磁碟後再試試。", vbCritical
     End If
 End Sub
 
@@ -290,6 +318,10 @@ Private Sub Command2_Click()
     ChangePWD_Click
 End Sub
 
+Private Sub Command3_Click()
+    frmAbout.Show
+End Sub
+
 Private Sub DiskInfo_Click()
     ReadPWD
 End Sub
@@ -314,6 +346,10 @@ Private Sub ForgotPWD_Click()
     End Select
     Shell "cmd.exe /c " & "rmdir /S /Q D:\RECYCLED\UDrives", vbNormalFocus
     MsgBox "錯誤！" & vbNewLine & "無法重新開始新硬碟，因而未完成動作", vbCritical
+End Sub
+
+Private Sub LogFile_Click()
+    Logfrm.Show
 End Sub
 
 Private Sub MakeKey_Click()
