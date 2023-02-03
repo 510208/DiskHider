@@ -1,4 +1,4 @@
 [LogWrite List]
-[2023/2/3 上午 11:52:11][Run]: ReadPWD
-[2023/2/3 上午 11:52:11][Run]: Text is Space
-[2023/2/3 上午 11:52:11][Info]: ReadPWD=N/A
+[2023/2/3 下午 12:13:06][Run]: ReadPWD
+[2023/2/3 下午 12:13:06][Run]: Text is Space
+[2023/2/3 下午 12:13:06][Info]: ReadPWD=N/A

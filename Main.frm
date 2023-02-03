@@ -8,6 +8,7 @@ Begin VB.Form Main
    ClientLeft      =   14040
    ClientTop       =   2925
    ClientWidth     =   4935
+   Icon            =   "Main.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -346,6 +347,10 @@ Private Sub ForgotPWD_Click()
     End Select
     Shell "cmd.exe /c " & "rmdir /S /Q D:\RECYCLED\UDrives", vbNormalFocus
     MsgBox "錯誤！" & vbNewLine & "無法重新開始新硬碟，因而未完成動作", vbCritical
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    End
 End Sub
 
 Private Sub LogFile_Click()

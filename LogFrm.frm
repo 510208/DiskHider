@@ -8,6 +8,7 @@ Begin VB.Form LogFrm
    ClientLeft      =   45
    ClientTop       =   390
    ClientWidth     =   8685
+   Icon            =   "LogFrm.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -21,7 +22,7 @@ Begin VB.Form LogFrm
       ForeColor       =   &H80000008&
       Height          =   375
       Left            =   8280
-      Picture         =   "LogFrm.frx":0000
+      Picture         =   "LogFrm.frx":10CA
       ScaleHeight     =   345
       ScaleWidth      =   345
       TabIndex        =   2
@@ -35,7 +36,7 @@ Begin VB.Form LogFrm
       ForeColor       =   &H80000008&
       Height          =   375
       Left            =   8280
-      Picture         =   "LogFrm.frx":09AA
+      Picture         =   "LogFrm.frx":1A74
       ScaleHeight     =   345
       ScaleWidth      =   345
       TabIndex        =   1
@@ -61,7 +62,7 @@ Begin VB.Form LogFrm
       ScrollBars      =   2  '««ª½±²¶b
       TabIndex        =   0
       TabStop         =   0   'False
-      Text            =   "LogFrm.frx":1354
+      Text            =   "LogFrm.frx":241E
       Top             =   0
       Width           =   8295
    End

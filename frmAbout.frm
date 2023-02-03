@@ -7,6 +7,7 @@ Begin VB.Form frmAbout
    ClientTop       =   1935
    ClientWidth     =   5730
    ClipControls    =   0   'False
+   Icon            =   "frmAbout.frx":0000
    LinkTopic       =   "Form2"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -19,7 +20,7 @@ Begin VB.Form frmAbout
       ClipControls    =   0   'False
       Height          =   540
       Left            =   240
-      Picture         =   "frmAbout.frx":0000
+      Picture         =   "frmAbout.frx":10CA
       ScaleHeight     =   337.12
       ScaleMode       =   0  '使用者自訂
       ScaleWidth      =   337.12
@@ -146,6 +147,7 @@ Private Sub Form_Load()
     Me.Caption = "關於 " & App.Title
     lblVersion.Caption = "版本 " & App.Major & "." & App.Minor & "." & App.Revision
     lblTitle.Caption = App.Title
+    picIcon.Picture = Main.Icon
 End Sub
 
 Public Sub StartSysInfo()

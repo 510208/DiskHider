@@ -8,6 +8,7 @@ Begin VB.Form frmLogin
    ClientLeft      =   2835
    ClientTop       =   3480
    ClientWidth     =   6510
+   Icon            =   "frmLogin.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -23,7 +24,7 @@ Begin VB.Form frmLogin
       Left            =   3720
       MultiLine       =   -1  'True
       TabIndex        =   6
-      Text            =   "frmLogin.frx":0000
+      Text            =   "frmLogin.frx":10CA
       Top             =   120
       Width           =   2655
    End
@@ -70,7 +71,7 @@ Begin VB.Form frmLogin
    Begin VB.Image Image1 
       Height          =   330
       Left            =   3240
-      Picture         =   "frmLogin.frx":0057
+      Picture         =   "frmLogin.frx":1121
       Top             =   600
       Width           =   330
    End
