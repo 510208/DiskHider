@@ -4,26 +4,55 @@ Begin VB.Form Main
    BackColor       =   &H80000005&
    BorderStyle     =   1  '單線固定
    Caption         =   "DiskHider"
-   ClientHeight    =   3015
+   ClientHeight    =   2460
    ClientLeft      =   14040
    ClientTop       =   2925
-   ClientWidth     =   6960
+   ClientWidth     =   4935
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3015
-   ScaleWidth      =   6960
+   ScaleHeight     =   2460
+   ScaleWidth      =   4935
    StartUpPosition =   2  '螢幕中央
+   Begin VB.Frame Frame4 
+      Appearance      =   0  '平面
+      BackColor       =   &H80000005&
+      Caption         =   "關於"
+      ForeColor       =   &H80000008&
+      Height          =   735
+      Left            =   2160
+      TabIndex        =   11
+      Top             =   1680
+      Width           =   2655
+      Begin VB.CommandButton Command3 
+         Caption         =   "關於(&A)"
+         Height          =   375
+         Left            =   120
+         TabIndex        =   12
+         Top             =   240
+         Width           =   2415
+      End
+   End
+   Begin VB.TextBox TxtTempForLog 
+      Appearance      =   0  '平面
+      Height          =   270
+      Left            =   4080
+      TabIndex        =   10
+      Text            =   "Text2"
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   255
+   End
    Begin VB.Frame Frame3 
       Appearance      =   0  '平面
       BackColor       =   &H80000005&
       Caption         =   "磁碟機創建狀態(&I)"
       ForeColor       =   &H80000008&
       Height          =   615
-      Left            =   4920
-      TabIndex        =   9
-      Top             =   1440
-      Width           =   1935
+      Left            =   2160
+      TabIndex        =   8
+      Top             =   960
+      Width           =   2655
       Begin VB.Label DiskInfo 
          Alignment       =   2  '置中對齊
          Appearance      =   0  '平面
@@ -33,21 +62,21 @@ Begin VB.Form Main
          ForeColor       =   &H80000008&
          Height          =   285
          Left            =   120
-         TabIndex        =   10
+         TabIndex        =   9
          ToolTipText     =   "點擊以重新載入"
          Top             =   240
-         Width           =   1695
+         Width           =   2415
       End
    End
    Begin VB.TextBox TextForCheckSpace 
       Appearance      =   0  '平面
-      Height          =   495
-      Left            =   4920
-      TabIndex        =   8
+      Height          =   270
+      Left            =   4320
+      TabIndex        =   7
       Text            =   "Text2"
-      Top             =   2400
+      Top             =   0
       Visible         =   0   'False
-      Width           =   375
+      Width           =   255
    End
    Begin VB.Frame Frame2 
       Appearance      =   0  '平面
@@ -56,14 +85,14 @@ Begin VB.Form Main
       ForeColor       =   &H80000008&
       Height          =   735
       Left            =   120
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   120
       Width           =   4695
       Begin VB.CommandButton Command1 
          Caption         =   "解密(&R)"
          Height          =   375
          Left            =   3720
-         TabIndex        =   5
+         TabIndex        =   4
          Top             =   240
          Width           =   855
       End
@@ -71,7 +100,7 @@ Begin VB.Form Main
          Appearance      =   0  '平面
          Height          =   270
          Left            =   1200
-         TabIndex        =   4
+         TabIndex        =   3
          Top             =   240
          Width           =   2415
       End
@@ -82,7 +111,7 @@ Begin VB.Form Main
          ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
-         TabIndex        =   6
+         TabIndex        =   5
          ToolTipText     =   "此處需輸入密碼而非產生時的密鑰！"
          Top             =   240
          Width           =   975
@@ -93,50 +122,28 @@ Begin VB.Form Main
       BackColor       =   &H80000005&
       Caption         =   "其他動作(&D)"
       ForeColor       =   &H80000008&
-      Height          =   1215
-      Left            =   4920
-      TabIndex        =   1
-      Top             =   120
+      Height          =   1455
+      Left            =   120
+      TabIndex        =   0
+      Top             =   960
       Width           =   1935
       Begin VB.CommandButton Command2 
          Caption         =   "修改密碼(&C)"
-         Height          =   375
+         Height          =   495
          Left            =   120
-         TabIndex        =   7
-         Top             =   720
+         TabIndex        =   6
+         Top             =   840
          Width           =   1695
       End
       Begin VB.CommandButton MkPwdTxt 
          Caption         =   "產生新磁碟機(&P)"
-         Height          =   375
+         Height          =   495
          Left            =   120
-         TabIndex        =   2
+         TabIndex        =   1
          ToolTipText     =   "產生帶密碼的磁碟機"
          Top             =   240
          Width           =   1695
       End
-   End
-   Begin VB.TextBox LogLbl 
-      Appearance      =   0  '平面
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   1935
-      Left            =   120
-      Locked          =   -1  'True
-      MultiLine       =   -1  'True
-      ScrollBars      =   2  '垂直捲軸
-      TabIndex        =   0
-      TabStop         =   0   'False
-      Text            =   "Main.frx":0000
-      Top             =   960
-      Width           =   4695
    End
    Begin VB.Menu key 
       Caption         =   "密鑰(&K)"
@@ -210,7 +217,6 @@ Retry:
         MsgBox "文件為空。", vbInformation
         pwdIsNA = True
         Close #1
-        Exit Function
     Else
         On Error GoTo Error
         Const ForReading = 1
@@ -232,6 +238,7 @@ Retry:
         DiskInfo.ForeColor = QBColor(15)
     End If
     Exit Function
+    Close #1
 Error:
     Dim MsgBoxReturnValue
     LogWrite "ReadPWD:Not Found pwd.txt", 1
@@ -255,19 +262,36 @@ fileIsSpace:
 End Function
 
 Private Sub Command1_Click()
-    On Error Resume Next
-    If Text1.Text = UserPWD Then
-        Shell "cmd.exe /c start " & App.Path & "\About.bat", vbNormalFocus
-        LogWrite "Shell 'cmd.exe /c start ' & app.path & ' \ About.bat ', vbNormalFocus"
-        MsgBox "完成！", vbInformation
-        ExtractInfo = True
+    'On Error Resume Next
+    If Not pwdIsNA Then
+        LogWrite pwdIsNA
+        If Text1.Text = UserPWD Then
+            Shell "cmd.exe /c start " & App.Path & "\About.bat", vbNormalFocus
+            LogWrite "Shell 'cmd.exe /c start ' & app.path & ' \ About.bat ', vbNormalFocus"
+            MsgBox "完成！", vbInformation
+            ExtractInfo = True
+        Else
+            MsgBox "密碼不正確！", vbCritical
+        End If
     Else
-        MsgBox "密碼不正確！", vbCritical
+        Dim MsgBoxClickVal
+        MsgBoxClickVal = MsgBox("警告！" & vbNewLine & "尚未建立虛擬磁碟機或密鑰檔已損壞，是否重建立虛擬磁碟機？", vbExclamation + vbYesNoCancel)
+        Select Case MsgBoxClickVal
+            Case vbYes
+                MkPwdTxt_Click
+            Case Else
+                Exit Sub
+        End Select
+        LogWrite pwdIsNA
     End If
 End Sub
 
 Private Sub Command2_Click()
     ChangePWD_Click
+End Sub
+
+Private Sub DiskInfo_Click()
+    ReadPWD
 End Sub
 
 Private Sub ForgotPWD_Click()
@@ -306,7 +330,7 @@ End Sub
 
 Private Sub Form_Load()
     Me.Show
-    LogLbl.Text = "[LogWrite List]"
+    Logfrm.LogLbl.Text = "[LogWrite List]"
     UserPWD = ReadPWD()
     If UserPWD = "" Then
         UserPWD = "N/A"
@@ -317,6 +341,14 @@ Private Sub Form_Load()
     ExtractInfo = False
     MainWidthAndHeight(0) = Me.Width
     MainWidthAndHeight(1) = Me.Height
+End Sub
+
+Private Sub Picture1_Click()
+    Logfrm.LogLbl.Text = "[LogWrite List]"
+End Sub
+
+Private Sub Picture2_Click()
+    TxtSave
 End Sub
 
 Private Sub Return_Click()
