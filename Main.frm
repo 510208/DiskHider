@@ -14,14 +14,40 @@ Begin VB.Form Main
    ScaleHeight     =   3015
    ScaleWidth      =   6960
    StartUpPosition =   2  '螢幕中央
+   Begin VB.Frame Frame3 
+      Appearance      =   0  '平面
+      BackColor       =   &H80000005&
+      Caption         =   "磁碟機創建狀態(&I)"
+      ForeColor       =   &H80000008&
+      Height          =   615
+      Left            =   4920
+      TabIndex        =   9
+      Top             =   1440
+      Width           =   1935
+      Begin VB.Label DiskInfo 
+         Alignment       =   2  '置中對齊
+         Appearance      =   0  '平面
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  '單線固定
+         Caption         =   "無法查詢"
+         ForeColor       =   &H80000008&
+         Height          =   285
+         Left            =   120
+         TabIndex        =   10
+         ToolTipText     =   "點擊以重新載入"
+         Top             =   240
+         Width           =   1695
+      End
+   End
    Begin VB.TextBox TextForCheckSpace 
       Appearance      =   0  '平面
       Height          =   495
-      Left            =   4440
+      Left            =   4920
       TabIndex        =   8
       Text            =   "Text2"
-      Top             =   1440
-      Width           =   1215
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   375
    End
    Begin VB.Frame Frame2 
       Appearance      =   0  '平面
@@ -32,11 +58,11 @@ Begin VB.Form Main
       Left            =   120
       TabIndex        =   3
       Top             =   120
-      Width           =   4215
+      Width           =   4695
       Begin VB.CommandButton Command1 
          Caption         =   "解密(&R)"
          Height          =   375
-         Left            =   3240
+         Left            =   3720
          TabIndex        =   5
          Top             =   240
          Width           =   855
@@ -47,7 +73,7 @@ Begin VB.Form Main
          Left            =   1200
          TabIndex        =   4
          Top             =   240
-         Width           =   1935
+         Width           =   2415
       End
       Begin VB.Label Label1 
          Appearance      =   0  '平面
@@ -68,25 +94,26 @@ Begin VB.Form Main
       Caption         =   "其他動作(&D)"
       ForeColor       =   &H80000008&
       Height          =   1215
-      Left            =   4440
+      Left            =   4920
       TabIndex        =   1
       Top             =   120
-      Width           =   2415
+      Width           =   1935
       Begin VB.CommandButton Command2 
          Caption         =   "修改密碼(&C)"
          Height          =   375
          Left            =   120
          TabIndex        =   7
          Top             =   720
-         Width           =   2175
+         Width           =   1695
       End
       Begin VB.CommandButton MkPwdTxt 
-         Caption         =   "產生帶密碼的磁碟機(&P)"
+         Caption         =   "產生新磁碟機(&P)"
          Height          =   375
          Left            =   120
          TabIndex        =   2
+         ToolTipText     =   "產生帶密碼的磁碟機"
          Top             =   240
-         Width           =   2175
+         Width           =   1695
       End
    End
    Begin VB.TextBox LogLbl 
@@ -109,7 +136,7 @@ Begin VB.Form Main
       TabStop         =   0   'False
       Text            =   "Main.frx":0000
       Top             =   960
-      Width           =   4215
+      Width           =   4695
    End
    Begin VB.Menu key 
       Caption         =   "密鑰(&K)"
@@ -145,50 +172,6 @@ Dim ExtractInfo As Boolean
 Dim MainWidthAndHeight(1) As Long
 Dim pwdIsNA As Boolean
 
-Function ReadPWD()
-Retry:
-    LogWrite "ReadPWD"
-    Dim Str1 As String
-    TextForCheckSpace = ""
-    Open App.Path + "\pwd.txt" For Input As #1
-    On Error GoTo fileIsSpace
-    Line Input #1, Str1
-    TextForCheckSpace.Text = Str1
-    If TextForCheckSpace.Text = "" Or TextForCheckSpace.Text = " " Then
-        MsgBox "文件為空。", vbInformation
-        pwdIsNA = True
-    Else
-        On Error GoTo Error
-        Const ForReading = 1
-        Dim fid As TextStream
-        Set fso = CreateObject("Scripting.FileSystemObject")
-        LogWrite "Dim Vars:" & vbNewLine & "fso As FileSystemObject" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
-        Set fid = fso.OpenTextFile(App.Path + "\pwd.txt", ForReading)
-        ReadPWD = fid.ReadLine
-        fid.Close
-        Exit Function
-    End If
-Error:
-    Dim MsgBoxReturnValue
-    LogWrite "ReadPWD:Not Found pwd.txt", 1
-    MsgBoxReturnValue = MsgBox("錯誤！無法讀取經ASCII加密後之密碼文本，請先進行密碼文本加密並確定儲存於" + App.Path + "\pwd.txt後再行讀檔", vbCritical + vbAbortRetryIgnore)
-    Select Case MsgBoxReturnValue
-        Case vbAbort
-            End
-            LogWrite "ReadPWD-Ans:Abort", 1
-        Case vbRetry
-            GoTo Retry
-            LogWrite "ReadPWD-Ans:Retry", 1
-        Case vbIgnore
-            LogWrite "ReadPWD-Ans:Ignore", 1
-            Exit Function
-    End Select
-    LogWrite "Exit Select", 1
-    Exit Function
-fileIsSpace:
-    pwdIsNA = True
-End Function
-
 Private Sub ChangePWD_Click()
     If ExtractInfo Then
         Dim OldPWD As String
@@ -213,6 +196,63 @@ Private Sub ChangePWD_Click()
         MsgBox "錯誤！" & vbNewLine & "您尚未解密，解密後再試試。", vbCritical
     End If
 End Sub
+
+Function ReadPWD()
+Retry:
+    LogWrite "ReadPWD"
+    Dim Str1 As String
+    TextForCheckSpace = ""
+    Open App.Path + "\pwd.txt" For Input As #1
+    On Error GoTo fileIsSpace
+    Line Input #1, Str1
+    TextForCheckSpace.Text = Str1
+    If TextForCheckSpace.Text = "" Or TextForCheckSpace.Text = " " Then
+        MsgBox "文件為空。", vbInformation
+        pwdIsNA = True
+        Close #1
+        Exit Function
+    Else
+        On Error GoTo Error
+        Const ForReading = 1
+        Dim fid As TextStream
+        Set fso = CreateObject("Scripting.FileSystemObject")
+        LogWrite "Dim Vars:" & vbNewLine & "fso As FileSystemObject" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
+        Set fid = fso.OpenTextFile(App.Path + "\pwd.txt", ForReading)
+        ReadPWD = fid.ReadLine
+        fid.Close
+        Close #1
+        pwdIsNA = False
+    End If
+    DiskInfo.Caption = pwdIsNA
+    If pwdIsNA Then
+        DiskInfo.BackColor = QBColor(10)
+        DiskInfo.ForeColor = QBColor(15)
+    Else
+        DiskInfo.BackColor = QBColor(12)
+        DiskInfo.ForeColor = QBColor(15)
+    End If
+    Exit Function
+Error:
+    Dim MsgBoxReturnValue
+    LogWrite "ReadPWD:Not Found pwd.txt", 1
+    MsgBoxReturnValue = MsgBox("錯誤！無法讀取經ASCII加密後之密碼文本，請先進行密碼文本加密並確定儲存於" + App.Path + "\pwd.txt後再行讀檔", vbCritical + vbAbortRetryIgnore)
+    Select Case MsgBoxReturnValue
+        Case vbAbort
+            End
+            LogWrite "ReadPWD-Ans:Abort", 1
+        Case vbRetry
+            GoTo Retry
+            LogWrite "ReadPWD-Ans:Retry", 1
+        Case vbIgnore
+            LogWrite "ReadPWD-Ans:Ignore", 1
+            Exit Function
+    End Select
+    LogWrite "Exit Select", 1
+    Exit Function
+fileIsSpace:
+    pwdIsNA = True
+    LogWrite "Text is Space"
+End Function
 
 Private Sub Command1_Click()
     On Error Resume Next
@@ -257,10 +297,10 @@ Private Sub MakeKey_Click()
 End Sub
 
 Private Sub MkPwdTxt_Click()
-    If Not (UserPWD <> "") Then
+    If pwdIsNA Then
         frmLogin.Show
     Else
-        MsgBox "錯誤！" & vbNewLine & "此電腦已創建過虛擬磁碟機，禁止重創"
+        MsgBox "錯誤！" & vbNewLine & "此電腦已創建過虛擬磁碟機，禁止重創", vbCritical
     End If
 End Sub
 
