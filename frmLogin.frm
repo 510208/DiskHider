@@ -33,7 +33,6 @@ Begin VB.Form frmLogin
       Height          =   345
       IMEMode         =   3  '¼È¤î
       Left            =   1320
-      PasswordChar    =   "*"
       TabIndex        =   4
       Top             =   600
       Width           =   1845

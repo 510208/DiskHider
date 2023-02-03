@@ -1,1 +1,11 @@
 [LogWrite List]
+[2023/2/3 下午 12:54:53][Run]: ReadPWD
+[2023/2/3 下午 12:54:53][Run]: Dim Vars:
+fso As FileSystemObject
+fid As TextStream
+fso = CreateObject('Scripting.FileSystemObject')
+[2023/2/3 下午 12:54:53][Info]: ReadPWD=000000530000004900000048000000500000004800000056
+[2023/2/3 下午 12:54:58][Run]: False
+[2023/2/3 下午 12:54:59][Run]: Shell 'cmd.exe /c start ' & app.path & ' \ About.bat ', vbNormalFocus
+[2023/2/3 下午 12:55:43][Run]: False
+[2023/2/3 下午 12:55:43][Run]: Shell 'cmd.exe /c start ' & app.path & ' \ About.bat ', vbNormalFocus
