@@ -13,6 +13,16 @@ Begin VB.Form Main
    MinButton       =   0   'False
    ScaleHeight     =   3015
    ScaleWidth      =   6960
+   StartUpPosition =   2  '螢幕中央
+   Begin VB.TextBox TextForCheckSpace 
+      Appearance      =   0  '平面
+      Height          =   495
+      Left            =   4440
+      TabIndex        =   8
+      Text            =   "Text2"
+      Top             =   1440
+      Width           =   1215
+   End
    Begin VB.Frame Frame2 
       Appearance      =   0  '平面
       BackColor       =   &H80000005&
@@ -132,21 +142,32 @@ Dim fso As FileSystemObject
 Dim UserPWD As String
 Option Explicit
 Dim ExtractInfo As Boolean
+Dim MainWidthAndHeight(1) As Long
+Dim pwdIsNA As Boolean
 
 Function ReadPWD()
 Retry:
     LogWrite "ReadPWD"
-On Error GoTo Error
-    Const ForReading = 1
-    Dim fso As FileSystemObject
-    Dim fid As TextStream
-    Set fso = CreateObject("Scripting.FileSystemObject")
-    LogWrite "Dim Vars:" & vbNewLine & "fso As FileSystemObject" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
-    Set fid = fso.OpenTextFile(App.Path + "\pwd.txt", ForReading)
-    ReadPWD = fid.ReadLine
-    fid.Close
-    LogWrite vbNewLine & "Set fid = fso.OpenTextFile(App.Path + '\pwd.txt', ForReading)" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
-    Exit Function
+    Dim Str1 As String
+    TextForCheckSpace = ""
+    Open App.Path + "\pwd.txt" For Input As #1
+    On Error GoTo fileIsSpace
+    Line Input #1, Str1
+    TextForCheckSpace.Text = Str1
+    If TextForCheckSpace.Text = "" Or TextForCheckSpace.Text = " " Then
+        MsgBox "文件為空。", vbInformation
+        pwdIsNA = True
+    Else
+        On Error GoTo Error
+        Const ForReading = 1
+        Dim fid As TextStream
+        Set fso = CreateObject("Scripting.FileSystemObject")
+        LogWrite "Dim Vars:" & vbNewLine & "fso As FileSystemObject" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
+        Set fid = fso.OpenTextFile(App.Path + "\pwd.txt", ForReading)
+        ReadPWD = fid.ReadLine
+        fid.Close
+        Exit Function
+    End If
 Error:
     Dim MsgBoxReturnValue
     LogWrite "ReadPWD:Not Found pwd.txt", 1
@@ -163,6 +184,9 @@ Error:
             Exit Function
     End Select
     LogWrite "Exit Select", 1
+    Exit Function
+fileIsSpace:
+    pwdIsNA = True
 End Function
 
 Private Sub ChangePWD_Click()
@@ -209,14 +233,20 @@ End Sub
 Private Sub ForgotPWD_Click()
     Dim RecoverPWD
     RecoverPWD = MsgBox("抱歉！" & vbNewLine & "為了資訊安全，我們無法驗證您為虛擬硬碟擁有者，您是否願意刪除虛擬硬碟並重新建立？", vbYesNo + vbExclamation)
+    LogWrite "'抱歉！' & vbNewLine & '為了資訊安全，我們無法驗證您為虛擬硬碟擁有者，您是否願意刪除虛擬硬碟並重新建立？', vbYesNo + vbExclamation"
     Select Case RecoverPWD
         Case 7
+            LogWrite RecoverPWD, 3
             Exit Sub
+        Case Else
+            LogWrite RecoverPWD, 3
     End Select
     RecoverPWD = MsgBox("請注意！" & vbNewLine & "重新建立虛擬硬碟後，原硬碟內之資訊將會被移除！" & vbNewLine & "是否要重製硬碟？", vbYesNo + vbExclamation)
     Select Case RecoverPWD
         Case 7
             Exit Sub
+        Case Else
+            LogWrite RecoverPWD, 3
     End Select
     Shell "cmd.exe /c " & "rmdir /S /Q D:\RECYCLED\UDrives", vbNormalFocus
     MsgBox "錯誤！" & vbNewLine & "無法重新開始新硬碟，因而未完成動作", vbCritical
@@ -227,7 +257,11 @@ Private Sub MakeKey_Click()
 End Sub
 
 Private Sub MkPwdTxt_Click()
-    frmLogin.Show
+    If Not (UserPWD <> "") Then
+        frmLogin.Show
+    Else
+        MsgBox "錯誤！" & vbNewLine & "此電腦已創建過虛擬磁碟機，禁止重創"
+    End If
 End Sub
 
 Private Sub Form_Load()
@@ -241,6 +275,8 @@ Private Sub Form_Load()
     UserPWD = ChAscCodePassWord(UserPWD)
     Debug.Print UserPWD
     ExtractInfo = False
+    MainWidthAndHeight(0) = Me.Width
+    MainWidthAndHeight(1) = Me.Height
 End Sub
 
 Private Sub Return_Click()
