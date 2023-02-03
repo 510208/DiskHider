@@ -1,9 +1,9 @@
 VERSION 5.00
 Begin VB.Form frmLogin 
-   Appearance      =   0  '¥­­±
+   Appearance      =   0  'å¹³é¢
    BackColor       =   &H80000005&
-   BorderStyle     =   3  'Âù½u©T©w¹ï¸Ü¤è¶ô
-   Caption         =   "µn¤J"
+   BorderStyle     =   3  'é›™ç·šå›ºå®šå°è©±æ–¹å¡Š
+   Caption         =   "ç™»å…¥"
    ClientHeight    =   1545
    ClientLeft      =   2835
    ClientTop       =   3480
@@ -13,13 +13,13 @@ Begin VB.Form frmLogin
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   912.837
-   ScaleMode       =   0  '¨Ï¥ÎªÌ¦Û­q
+   ScaleMode       =   0  'ä½¿ç”¨è€…è‡ªè¨‚
    ScaleWidth      =   6112.537
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  '¿Ã¹õ¤¤¥¡
+   StartUpPosition =   2  'è¢å¹•ä¸­å¤®
    Begin VB.TextBox Text1 
-      Appearance      =   0  '¥­­±
-      BorderStyle     =   0  '¨S¦³®Ø½u
+      Appearance      =   0  'å¹³é¢
+      BorderStyle     =   0  'æ²’æœ‰æ¡†ç·š
       Height          =   855
       Left            =   3720
       MultiLine       =   -1  'True
@@ -29,17 +29,17 @@ Begin VB.Form frmLogin
       Width           =   2655
    End
    Begin VB.TextBox KeyTxt 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       Height          =   345
-      IMEMode         =   3  '¼È¤î
+      IMEMode         =   3  'æš«æ­¢
       Left            =   1320
       TabIndex        =   4
       Top             =   600
       Width           =   1845
    End
    Begin VB.CommandButton cmdOK 
-      Appearance      =   0  '¥­­±
-      Caption         =   "½T©w"
+      Appearance      =   0  'å¹³é¢
+      Caption         =   "ç¢ºå®š"
       Default         =   -1  'True
       Height          =   390
       Left            =   480
@@ -48,9 +48,9 @@ Begin VB.Form frmLogin
       Width           =   1140
    End
    Begin VB.CommandButton cmdCancel 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       Cancel          =   -1  'True
-      Caption         =   "¨ú®ø"
+      Caption         =   "å–æ¶ˆ"
       Height          =   390
       Left            =   2220
       TabIndex        =   3
@@ -58,9 +58,9 @@ Begin VB.Form frmLogin
       Width           =   1140
    End
    Begin VB.TextBox txtPassword 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       Height          =   345
-      IMEMode         =   3  '¼È¤î
+      IMEMode         =   3  'æš«æ­¢
       Left            =   1320
       PasswordChar    =   "*"
       TabIndex        =   1
@@ -75,9 +75,9 @@ Begin VB.Form frmLogin
       Width           =   330
    End
    Begin VB.Label lblLabels 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "±KÆ_(&K):"
+      Caption         =   "å¯†é‘°(&K):"
       ForeColor       =   &H80000008&
       Height          =   270
       Index           =   0
@@ -87,9 +87,9 @@ Begin VB.Form frmLogin
       Width           =   1080
    End
    Begin VB.Label lblLabels 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "±K½X(&P):"
+      Caption         =   "å¯†ç¢¼(&P):"
       ForeColor       =   &H80000008&
       Height          =   270
       Index           =   1
@@ -108,17 +108,53 @@ Option Explicit
 Dim fso As FileSystemObject
 Public LogWriteinSucceeded As Boolean
 
+'
+'                        _oo0oo_
+'                       o8888888o
+'                       88" . "88
+'                       (| -_- |)
+'                       0\  =  /0
+'                     ___/`---'\___
+'                   .' \\|     |// '.
+'                  / \\|||  :  |||// \
+'                 / _||||| -:- |||||- \
+'                |   | \\\  - /// |   |
+'                | \_|  ''\---/''  |_/ |
+'                \  .-\__  '-'  ___/-. /
+'              ___'. .'  /--.--\  `. .'___
+'           ."" '<  `.___\_<|>_/___.' >' "".
+'          | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+'          \  \ `_.   \_ __\ /__ _/   .-` /  /
+'      =====`-.____`.___ \_____/___.-`___.-'=====
+'                        `=---='
+' 
+' 
+'      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+' 
+'            ä½›ç¥–ä¿ä½‘       æ°¸ä¸ç•¶æ©Ÿ     æ°¸ç„¡BUG
+' 
+'        ä½›æ›°:  
+'                å¯«å­—æ¨“é‡Œå¯«å­—é–“ï¼Œå¯«å­—é–“é‡Œç¨‹å¼å“¡ï¼›  
+'                ç¨‹å¼äººå“¡å¯«ç¨‹å¼ï¼Œåˆæ‹¿ç¨‹å¼æ›é…’éŒ¢ã€‚  
+'                é…’é†’åªåœ¨ç¶²ä¸Šåï¼Œé…’é†‰é‚„ä¾†ç¶²ä¸‹çœ ï¼›  
+'                é…’é†‰é…’é†’æ—¥å¾©æ—¥ï¼Œç¶²ä¸Šç¶²ä¸‹å¹´å¾©å¹´ã€‚  
+'                ä½†é¡˜è€æ­»é›»è…¦é–“ï¼Œä¸é¡˜é èº¬è€é—†å‰ï¼›  
+'                å¥”é¦³å¯¶é¦¬è²´è€…è¶£ï¼Œå…¬äº¤è‡ªè¡Œç¨‹å¼å“¡ã€‚  
+'                åˆ¥äººç¬‘æˆ‘å¿’ç˜‹ç™²ï¼Œæˆ‘ç¬‘è‡ªå·±å‘½å¤ªè³¤ï¼›  
+'                ä¸è¦‹æ»¿è¡—æ¼‚äº®å¦¹ï¼Œå“ªå€‹æ­¸å¾—ç¨‹å¼å“¡ï¼Ÿ
+'
+
 Sub mkpwd()
     Dim PWDAsc As String
     PWDAsc = AscCodePassWord(txtPassword.Text)
     KeyTxt.Text = PWDAsc
-    MsgBox "¦¨¥\²£¥Í±KÆ_¡I" & vbNewLine & "½Ğ±N¡u±KÆ_¡v¤å¥»®Ø¤¤ªº¤å¦rÖß¶K¨ì¥»³nÅé®Ú¥Ø¿ı¡upwd.txt¡v¤¤¡A¦p¦¹¤@¨Ó¡A" & App.Title _
-    & "¤~¥i¥H¥¿±`¦s¨ú¨Ã¸Ñ±K¡A¨Ã¶}±Ò±zªº±K½X¡C" & vbNewLine & "ÁÂÁÂ¡C" & vbNewLine & vbNewLine & "³Æµù¡G¦pªG®Ú¥Ø¿ı¤U¨S¦³pwd.txt¡A½Ğ¦Û¦æ³Ğ«Ø¨Ã¶K¤W±KÆ_¡C", vbInformation
+    MsgBox "æˆåŠŸç”¢ç”Ÿå¯†é‘°ï¼" & vbNewLine & "è«‹å°‡ã€Œå¯†é‘°ã€æ–‡æœ¬æ¡†ä¸­çš„æ–‡å­—ç²˜è²¼åˆ°æœ¬è»Ÿé«”æ ¹ç›®éŒ„ã€Œpwd.txtã€ä¸­ï¼Œå¦‚æ­¤ä¸€ä¾†ï¼Œ" & App.Title _
+    & "æ‰å¯ä»¥æ­£å¸¸å­˜å–ä¸¦è§£å¯†ï¼Œä¸¦é–‹å•Ÿæ‚¨çš„å¯†ç¢¼ã€‚" & vbNewLine & "è¬è¬ã€‚" & vbNewLine & vbNewLine & "å‚™è¨»ï¼šå¦‚æœæ ¹ç›®éŒ„ä¸‹æ²’æœ‰pwd.txtï¼Œè«‹è‡ªè¡Œå‰µå»ºä¸¦è²¼ä¸Šå¯†é‘°ã€‚", vbInformation
 End Sub
 
 Private Sub cmdCancel_Click()
-    '³]©w¥ş°ìÅÜ¼Æ¬° false ¨Ó¥Nªí
-    '¥¢±Ñªºµn¤J
+    'è¨­å®šå…¨åŸŸè®Šæ•¸ç‚º false ä¾†ä»£è¡¨
+    'å¤±æ•—çš„ç™»å…¥
     LogWriteinSucceeded = False
     Me.Hide
 End Sub
@@ -126,7 +162,7 @@ End Sub
 Private Sub cmdOK_Click()
     LogWriteinSucceeded = True
     If txtPassword.Text = "" Then
-        MsgBox "¿ù»~¡I§AÁÙ¥¼¿é¤J±K½X¡I", vbCritical
+        MsgBox "éŒ¯èª¤ï¼ä½ é‚„æœªè¼¸å…¥å¯†ç¢¼ï¼", vbCritical
         LogWrite "cmdOK_Click:PWD N/A"
         txtPassword.Text = ""
         txtPassword.SetFocus
@@ -137,6 +173,6 @@ End Sub
 
 Private Sub Image1_Click()
     Clipboard.SetText KeyTxt.Text
-    MsgBox "§¹¦¨½Æ»s¡I", vbInformation
+    MsgBox "å®Œæˆè¤‡è£½ï¼", vbInformation
     frmLogin.Hide
 End Sub
