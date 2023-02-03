@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmAbout 
-   BorderStyle     =   3  'Âù½u©T©w¹ï¸Ü¤è¶ô
-   Caption         =   "Ãö©ó§ÚªºÀ³¥Îµ{¦¡"
+   BorderStyle     =   3  'é›™ç·šå›ºå®šå°è©±æ–¹å¡Š
+   Caption         =   "é—œæ–¼æˆ‘çš„æ‡‰ç”¨ç¨‹å¼"
    ClientHeight    =   3555
    ClientLeft      =   2340
    ClientTop       =   1935
@@ -12,7 +12,7 @@ Begin VB.Form frmAbout
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   2453.724
-   ScaleMode       =   0  '¨Ï¥ÎªÌ¦Û­q
+   ScaleMode       =   0  'ä½¿ç”¨è€…è‡ªè¨‚
    ScaleWidth      =   5380.766
    ShowInTaskbar   =   0   'False
    Begin VB.PictureBox picIcon 
@@ -22,7 +22,7 @@ Begin VB.Form frmAbout
       Left            =   240
       Picture         =   "frmAbout.frx":10CA
       ScaleHeight     =   337.12
-      ScaleMode       =   0  '¨Ï¥ÎªÌ¦Û­q
+      ScaleMode       =   0  'ä½¿ç”¨è€…è‡ªè¨‚
       ScaleWidth      =   337.12
       TabIndex        =   1
       Top             =   240
@@ -30,7 +30,7 @@ Begin VB.Form frmAbout
    End
    Begin VB.CommandButton cmdOK 
       Cancel          =   -1  'True
-      Caption         =   "½T©w"
+      Caption         =   "ç¢ºå®š"
       Default         =   -1  'True
       Height          =   345
       Left            =   4245
@@ -39,7 +39,7 @@ Begin VB.Form frmAbout
       Width           =   1260
    End
    Begin VB.CommandButton cmdSysInfo 
-      Caption         =   "¨t²Î¸ê°T(&S)..."
+      Caption         =   "ç³»çµ±è³‡è¨Š(&S)..."
       Height          =   345
       Left            =   4260
       TabIndex        =   2
@@ -48,7 +48,7 @@ Begin VB.Form frmAbout
    End
    Begin VB.Line Line1 
       BorderColor     =   &H00808080&
-      BorderStyle     =   6  '¤º¹ê½u
+      BorderStyle     =   6  'å…§å¯¦ç·š
       Index           =   1
       X1              =   84.515
       X2              =   5309.398
@@ -56,7 +56,7 @@ Begin VB.Form frmAbout
       Y2              =   1687.583
    End
    Begin VB.Label lblDescription 
-      Caption         =   "À³¥Îµ{¦¡»¡©ú"
+      Caption         =   "æ‡‰ç”¨ç¨‹å¼èªªæ˜"
       ForeColor       =   &H00000000&
       Height          =   1170
       Left            =   1050
@@ -65,7 +65,7 @@ Begin VB.Form frmAbout
       Width           =   3885
    End
    Begin VB.Label lblTitle 
-      Caption         =   "À³¥Îµ{¦¡¼ĞÃD"
+      Caption         =   "æ‡‰ç”¨ç¨‹å¼æ¨™é¡Œ"
       ForeColor       =   &H00000000&
       Height          =   480
       Left            =   1050
@@ -83,7 +83,7 @@ Begin VB.Form frmAbout
       Y2              =   1697.936
    End
    Begin VB.Label lblVersion 
-      Caption         =   "ª©¥»"
+      Caption         =   "ç‰ˆæœ¬"
       Height          =   225
       Left            =   1050
       TabIndex        =   6
@@ -91,7 +91,7 @@ Begin VB.Form frmAbout
       Width           =   3885
    End
    Begin VB.Label lblDisclaimer 
-      Caption         =   "Äµ§i: ..."
+      Caption         =   "è­¦å‘Š: ..."
       ForeColor       =   &H00000000&
       Height          =   825
       Left            =   255
@@ -107,7 +107,36 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-' µù¥U¾÷½X¦w¥ş©Ê¿ï¶µ...
+'
+'                   ___====-_  _-====___
+'             _--^^^     //      \\     ^^^--_
+'          _-^          // (    ) \\          ^-_
+'         -            //  |\^^/|  \\            -
+'       _/            //   (@::@)   \\            \_
+'      /             ((     \\//     ))             \
+'     -               \\    (oo)    //               -
+'    -                 \\  / VV \  //                 -
+'   -                   \\/      \//                   -
+'  _ /|          /\      (   /\   )      /\          |\ _
+'  |/ | /\ /\ /\/  \ /\  \  |  |  /  /\ /  \/\ /\ /\ | \|
+'  `  |/  V  V  `   V  \ \| |  | |/ /  V   '  V  V  \|  '
+'     `   `  `      `   / | |  | | \   '      '  '   '
+'                      (  | |  | |  )
+'                     __\ | |  | | /__
+'                    (vvv(VVV)(VVV)vvv)
+'                  ç¥ç¸ä¿ä½‘ï¼Œç¨‹å¼ç¢¼æ²’Bug!
+'
+'        ç¥ç¸æ›°:  
+'                å¯«å­—æ¨“é‡Œå¯«å­—é–“ï¼Œå¯«å­—é–“é‡Œç¨‹å¼å“¡ï¼›  
+'                ç¨‹å¼äººå“¡å¯«ç¨‹å¼ï¼Œåˆæ‹¿ç¨‹å¼æ›é…’éŒ¢ã€‚  
+'                é…’é†’åªåœ¨ç¶²ä¸Šåï¼Œé…’é†‰é‚„ä¾†ç¶²ä¸‹çœ ï¼›  
+'                é…’é†‰é…’é†’æ—¥å¾©æ—¥ï¼Œç¶²ä¸Šç¶²ä¸‹å¹´å¾©å¹´ã€‚  
+'                ä½†é¡˜è€æ­»é›»è…¦é–“ï¼Œä¸é¡˜é èº¬è€é—†å‰ï¼›  
+'                å¥”é¦³å¯¶é¦¬è²´è€…è¶£ï¼Œå…¬äº¤è‡ªè¡Œç¨‹å¼å“¡ã€‚  
+'                åˆ¥äººç¬‘æˆ‘å¿’ç˜‹ç™²ï¼Œæˆ‘ç¬‘è‡ªå·±å‘½å¤ªè³¤ï¼›  
+'                ä¸è¦‹æ»¿è¡—æ¼‚äº®å¦¹ï¼Œå“ªå€‹æ­¸å¾—ç¨‹å¼å“¡ï¼Ÿ
+
+' è¨»å†Šæ©Ÿç¢¼å®‰å…¨æ€§é¸é …...
 Const READ_CONTROL = &H20000
 Const KEY_QUERY_VALUE = &H1
 Const KEY_SET_VALUE = &H2
@@ -119,11 +148,11 @@ Const KEY_ALL_ACCESS = KEY_QUERY_VALUE + KEY_SET_VALUE + _
                        KEY_CREATE_SUB_KEY + KEY_ENUMERATE_SUB_KEYS + _
                        KEY_NOTIFY + KEY_CREATE_LINK + READ_CONTROL
                      
-' µù¥U¾÷½X ROOT Ãş«¬...
+' è¨»å†Šæ©Ÿç¢¼ ROOT é¡å‹...
 Const HKEY_LOCAL_MACHINE = &H80000002
 Const ERROR_SUCCESS = 0
-Const REG_SZ = 1                         ' ¥H Unicode nul ¬°µ²§Àªº¦r¦ê
-Const REG_DWORD = 4                      ' 32-¦ì¤¸¼Æ­È
+Const REG_SZ = 1                         ' ä»¥ Unicode nul ç‚ºçµå°¾çš„å­—ä¸²
+Const REG_DWORD = 4                      ' 32-ä½å…ƒæ•¸å€¼
 
 Const gREGKEYSYSINFOLOC = "SOFTWARE\Microsoft\Shared Tools Location"
 Const gREGVALSYSINFOLOC = "MSINFO"
@@ -144,8 +173,8 @@ Private Sub cmdOK_Click()
 End Sub
 
 Private Sub Form_Load()
-    Me.Caption = "Ãö©ó " & App.Title
-    lblVersion.Caption = "ª©¥» " & App.Major & "." & App.Minor & "." & App.Revision
+    Me.Caption = "é—œæ–¼ " & App.Title
+    lblVersion.Caption = "ç‰ˆæœ¬ " & App.Major & "." & App.Minor & "." & App.Revision
     lblTitle.Caption = App.Title
     picIcon.Picture = Main.Icon
 End Sub
@@ -156,19 +185,19 @@ Public Sub StartSysInfo()
     Dim rc As Long
     Dim SysInfoPath As String
     
-    ' ¹Á¸Õ±qµù¥U°Ï¨ú±o¨t²Î¸ê°Tµ{¦¡¸ô®|\¦WºÙ...
+    ' å˜—è©¦å¾è¨»å†Šå€å–å¾—ç³»çµ±è³‡è¨Šç¨‹å¼è·¯å¾‘\åç¨±...
     If GetKeyValue(HKEY_LOCAL_MACHINE, gREGKEYSYSINFO, gREGVALSYSINFO, SysInfoPath) Then
-    ' ¹Á¸Õ±qµù¥U°Ï¨ú±o¨t²Î¸ê°Tµ{¦¡¸ô®|...
+    ' å˜—è©¦å¾è¨»å†Šå€å–å¾—ç³»çµ±è³‡è¨Šç¨‹å¼è·¯å¾‘...
     ElseIf GetKeyValue(HKEY_LOCAL_MACHINE, gREGKEYSYSINFOLOC, gREGVALSYSINFOLOC, SysInfoPath) Then
-        ' ÀË¬d¤wª¾ªº 32 ¦ì¤¸ÀÉ®×ª©¥»¬O§_¦s¦b
+        ' æª¢æŸ¥å·²çŸ¥çš„ 32 ä½å…ƒæª”æ¡ˆç‰ˆæœ¬æ˜¯å¦å­˜åœ¨
         If (Dir(SysInfoPath & "\MSINFO32.EXE") <> "") Then
             SysInfoPath = SysInfoPath & "\MSINFO32.EXE"
             
-        ' ¿ù»~ - §ä¤£¨ìÀÉ®×...
+        ' éŒ¯èª¤ - æ‰¾ä¸åˆ°æª”æ¡ˆ...
         Else
             GoTo SysInfoErr
         End If
-    ' ¿ù»~ - §ä¤£¨ìµù¥U¶µ¥Ø...
+    ' éŒ¯èª¤ - æ‰¾ä¸åˆ°è¨»å†Šé …ç›®...
     Else
         GoTo SysInfoErr
     End If
@@ -177,59 +206,59 @@ Public Sub StartSysInfo()
     
     Exit Sub
 SysInfoErr:
-    MsgBox "¥Ø«eµLªk´£¨Ñ¨t²Î¸ê°T", vbOKOnly
+    MsgBox "ç›®å‰ç„¡æ³•æä¾›ç³»çµ±è³‡è¨Š", vbOKOnly
 End Sub
 
 Public Function GetKeyValue(KeyRoot As Long, KeyName As String, SubKeyRef As String, ByRef KeyVal As String) As Boolean
-    Dim i As Long                                           ' °j°é­p¼Æ¾¹
-    Dim rc As Long                                          ' ¶Ç¦^¥N½X
-    Dim hKey As Long                                        ' ¶}±Òªºµù¥U¾÷½X¤§±±¨î¥N½X
+    Dim i As Long                                           ' è¿´åœˆè¨ˆæ•¸å™¨
+    Dim rc As Long                                          ' å‚³å›ä»£ç¢¼
+    Dim hKey As Long                                        ' é–‹å•Ÿçš„è¨»å†Šæ©Ÿç¢¼ä¹‹æ§åˆ¶ä»£ç¢¼
     Dim hDepth As Long                                      '
-    Dim KeyValType As Long                                  ' µù¥U¾÷½Xªº¸ê®Æ«¬ºA
-    Dim tmpVal As String                                    ' µù¥U¾÷½X­Èªº¼È¦sªÅ¶¡
-    Dim KeyValSize As Long                                  ' µù¥U¾÷½XÅÜ¼Æªº¤j¤p
+    Dim KeyValType As Long                                  ' è¨»å†Šæ©Ÿç¢¼çš„è³‡æ–™å‹æ…‹
+    Dim tmpVal As String                                    ' è¨»å†Šæ©Ÿç¢¼å€¼çš„æš«å­˜ç©ºé–“
+    Dim KeyValSize As Long                                  ' è¨»å†Šæ©Ÿç¢¼è®Šæ•¸çš„å¤§å°
     '------------------------------------------------------------
-    ' ¶}±Ò KeyRoot {HKEY_LOCAL_MACHINE...} ¤§¤Uªºµù¥U¾÷½X (RegKey)
+    ' é–‹å•Ÿ KeyRoot {HKEY_LOCAL_MACHINE...} ä¹‹ä¸‹çš„è¨»å†Šæ©Ÿç¢¼ (RegKey)
     '------------------------------------------------------------
-    rc = RegOpenKeyEx(KeyRoot, KeyName, 0, KEY_ALL_ACCESS, hKey) ' ¶}±Òµù¥U¾÷½X
+    rc = RegOpenKeyEx(KeyRoot, KeyName, 0, KEY_ALL_ACCESS, hKey) ' é–‹å•Ÿè¨»å†Šæ©Ÿç¢¼
     
-    If (rc <> ERROR_SUCCESS) Then GoTo GetKeyError          ' ³B²z¿ù»~...
+    If (rc <> ERROR_SUCCESS) Then GoTo GetKeyError          ' è™•ç†éŒ¯èª¤...
     
-    tmpVal = String$(1024, 0)                               ' °t¸mÅÜ¼ÆªÅ¶¡
-    KeyValSize = 1024                                       ' ¼Ğ¥ÜÅÜ¼Æ¤j¤p
+    tmpVal = String$(1024, 0)                               ' é…ç½®è®Šæ•¸ç©ºé–“
+    KeyValSize = 1024                                       ' æ¨™ç¤ºè®Šæ•¸å¤§å°
     
     '------------------------------------------------------------
-    ' Â^¨úµù¥U¾÷½X­È...
+    ' æ“·å–è¨»å†Šæ©Ÿç¢¼å€¼...
     '------------------------------------------------------------
     rc = RegQueryValueEx(hKey, SubKeyRef, 0, _
-                         KeyValType, tmpVal, KeyValSize)    ' ¨ú±o/«Ø¥ß¾÷½X­È
+                         KeyValType, tmpVal, KeyValSize)    ' å–å¾—/å»ºç«‹æ©Ÿç¢¼å€¼
                         
-    If (rc <> ERROR_SUCCESS) Then GoTo GetKeyError          ' ³B²z¿ù»~
+    If (rc <> ERROR_SUCCESS) Then GoTo GetKeyError          ' è™•ç†éŒ¯èª¤
     
-    If (Asc(Mid(tmpVal, KeyValSize, 1)) = 0) Then           ' Win95 ·|¥[¤J¥H Null ¬°µ²§Àªº¦r¦ê...
-        tmpVal = Left(tmpVal, KeyValSize - 1)               ' §ä¨ì Null¡A±q¦r¦ê¤¤¨ú¥X
-    Else                                                    ' WinNT ¤£·|¥[¤J¥H Null ¬°µ²§Àªº¦r¦ê...
-        tmpVal = Left(tmpVal, KeyValSize)                   ' §ä¤£¨ì Null¡A¨ú¥X¦r¦ê
+    If (Asc(Mid(tmpVal, KeyValSize, 1)) = 0) Then           ' Win95 æœƒåŠ å…¥ä»¥ Null ç‚ºçµå°¾çš„å­—ä¸²...
+        tmpVal = Left(tmpVal, KeyValSize - 1)               ' æ‰¾åˆ° Nullï¼Œå¾å­—ä¸²ä¸­å–å‡º
+    Else                                                    ' WinNT ä¸æœƒåŠ å…¥ä»¥ Null ç‚ºçµå°¾çš„å­—ä¸²...
+        tmpVal = Left(tmpVal, KeyValSize)                   ' æ‰¾ä¸åˆ° Nullï¼Œå–å‡ºå­—ä¸²
     End If
     '------------------------------------------------------------
-    ' ¨M©w¾÷½X­ÈªºÂà´««¬ºA...
+    ' æ±ºå®šæ©Ÿç¢¼å€¼çš„è½‰æ›å‹æ…‹...
     '------------------------------------------------------------
-    Select Case KeyValType                                  ' ·j´M¸ê®Æ«¬ºA...
-    Case REG_SZ                                             ' String µù¥U¾÷½X¸ê®Æ«¬ºA
-        KeyVal = tmpVal                                     ' ½Æ»s¦r¦ê­È
-    Case REG_DWORD                                          ' Double Word µù¥U¾÷½X¸ê®Æ«¬ºA
-        For i = Len(tmpVal) To 1 Step -1                    ' Âà´«¨C¤@­Ó¦ì¤¸
-            KeyVal = KeyVal + Hex(Asc(Mid(tmpVal, i, 1)))   ' ³v¦r«Ø¥ß­È
+    Select Case KeyValType                                  ' æœå°‹è³‡æ–™å‹æ…‹...
+    Case REG_SZ                                             ' String è¨»å†Šæ©Ÿç¢¼è³‡æ–™å‹æ…‹
+        KeyVal = tmpVal                                     ' è¤‡è£½å­—ä¸²å€¼
+    Case REG_DWORD                                          ' Double Word è¨»å†Šæ©Ÿç¢¼è³‡æ–™å‹æ…‹
+        For i = Len(tmpVal) To 1 Step -1                    ' è½‰æ›æ¯ä¸€å€‹ä½å…ƒ
+            KeyVal = KeyVal + Hex(Asc(Mid(tmpVal, i, 1)))   ' é€å­—å»ºç«‹å€¼
         Next
-        KeyVal = Format$("&h" + KeyVal)                     ' ±N Double Word Âà´«¬° String
+        KeyVal = Format$("&h" + KeyVal)                     ' å°‡ Double Word è½‰æ›ç‚º String
     End Select
     
-    GetKeyValue = True                                      ' ¶Ç¦^¦¨¥\ªº°T®§
-    rc = RegCloseKey(hKey)                                  ' Ãö³¬µù¥U¾÷½X
-    Exit Function                                           ' Â÷¶}
+    GetKeyValue = True                                      ' å‚³å›æˆåŠŸçš„è¨Šæ¯
+    rc = RegCloseKey(hKey)                                  ' é—œé–‰è¨»å†Šæ©Ÿç¢¼
+    Exit Function                                           ' é›¢é–‹
     
-GetKeyError:      ' ¿ù»~µo¥Í«á²M°£...
-    KeyVal = ""                                             ' ³]©w¶Ç¦^­È¬°ªÅ¦r¦ê
-    GetKeyValue = False                                     ' ¶Ç¦^¥¢±Ñªº°T®§
-    rc = RegCloseKey(hKey)                                  ' Ãö³¬µù¥U¾÷½X
+GetKeyError:      ' éŒ¯èª¤ç™¼ç”Ÿå¾Œæ¸…é™¤...
+    KeyVal = ""                                             ' è¨­å®šå‚³å›å€¼ç‚ºç©ºå­—ä¸²
+    GetKeyValue = False                                     ' å‚³å›å¤±æ•—çš„è¨Šæ¯
+    rc = RegCloseKey(hKey)                                  ' é—œé–‰è¨»å†Šæ©Ÿç¢¼
 End Function
