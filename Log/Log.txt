@@ -1,4 +1,1 @@
 [LogWrite List]
-[2023/2/3 ¤U¤È 12:13:06][Run]: ReadPWD
-[2023/2/3 ¤U¤È 12:13:06][Run]: Text is Space
-[2023/2/3 ¤U¤È 12:13:06][Info]: ReadPWD=N/A
