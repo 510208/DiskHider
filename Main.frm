@@ -82,7 +82,7 @@ Begin VB.Form Main
    Begin VB.TextBox LogLbl 
       Appearance      =   0  'енн▒
       BeginProperty Font 
-         Name            =   "YaHei Consolas Hybrid"
+         Name            =   "Arial"
          Size            =   9
          Charset         =   0
          Weight          =   400
@@ -141,9 +141,11 @@ On Error GoTo Error
     Dim fso As FileSystemObject
     Dim fid As TextStream
     Set fso = CreateObject("Scripting.FileSystemObject")
+    LogWrite "Dim Vars:" & vbNewLine & "fso As FileSystemObject" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
     Set fid = fso.OpenTextFile(App.Path + "\pwd.txt", ForReading)
     ReadPWD = fid.ReadLine
     fid.Close
+    LogWrite vbNewLine & "Set fid = fso.OpenTextFile(App.Path + '\pwd.txt', ForReading)" & vbNewLine & "fid As TextStream" & vbNewLine & "fso = CreateObject('Scripting.FileSystemObject')"
     Exit Function
 Error:
     Dim MsgBoxReturnValue
