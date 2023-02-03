@@ -1,8 +1,8 @@
 VERSION 5.00
 Begin VB.Form Main 
-   Appearance      =   0  '¥­­±
+   Appearance      =   0  'å¹³é¢
    BackColor       =   &H80000005&
-   BorderStyle     =   1  '³æ½u©T©w
+   BorderStyle     =   1  'å–®ç·šå›ºå®š
    Caption         =   "DiskHider"
    ClientHeight    =   2460
    ClientLeft      =   14040
@@ -14,11 +14,11 @@ Begin VB.Form Main
    MinButton       =   0   'False
    ScaleHeight     =   2460
    ScaleWidth      =   4935
-   StartUpPosition =   2  '¿Ã¹õ¤¤¥¡
+   StartUpPosition =   2  'è¢å¹•ä¸­å¤®
    Begin VB.Frame Frame4 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "Ãö©ó"
+      Caption         =   "é—œæ–¼"
       ForeColor       =   &H80000008&
       Height          =   735
       Left            =   2160
@@ -26,7 +26,7 @@ Begin VB.Form Main
       Top             =   1680
       Width           =   2655
       Begin VB.CommandButton Command3 
-         Caption         =   "Ãö©ó(&A)"
+         Caption         =   "é—œæ–¼(&A)"
          Height          =   375
          Left            =   120
          TabIndex        =   12
@@ -35,7 +35,7 @@ Begin VB.Form Main
       End
    End
    Begin VB.TextBox TxtTempForLog 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       Height          =   270
       Left            =   4080
       TabIndex        =   10
@@ -45,9 +45,9 @@ Begin VB.Form Main
       Width           =   255
    End
    Begin VB.Frame Frame3 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "ºÏºĞ¾÷³Ğ«Øª¬ºA(&I)"
+      Caption         =   "ç£ç¢Ÿæ©Ÿå‰µå»ºç‹€æ…‹(&I)"
       ForeColor       =   &H80000008&
       Height          =   615
       Left            =   2160
@@ -55,22 +55,22 @@ Begin VB.Form Main
       Top             =   960
       Width           =   2655
       Begin VB.Label DiskInfo 
-         Alignment       =   2  '¸m¤¤¹ï»ô
-         Appearance      =   0  '¥­­±
+         Alignment       =   2  'ç½®ä¸­å°é½Š
+         Appearance      =   0  'å¹³é¢
          BackColor       =   &H80000005&
-         BorderStyle     =   1  '³æ½u©T©w
-         Caption         =   "µLªk¬d¸ß"
+         BorderStyle     =   1  'å–®ç·šå›ºå®š
+         Caption         =   "ç„¡æ³•æŸ¥è©¢"
          ForeColor       =   &H80000008&
          Height          =   285
          Left            =   120
          TabIndex        =   9
-         ToolTipText     =   "ÂIÀ»¥H­«·s¸ü¤J"
+         ToolTipText     =   "é»æ“Šä»¥é‡æ–°è¼‰å…¥"
          Top             =   240
          Width           =   2415
       End
    End
    Begin VB.TextBox TextForCheckSpace 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       Height          =   270
       Left            =   4320
       TabIndex        =   7
@@ -80,9 +80,9 @@ Begin VB.Form Main
       Width           =   255
    End
    Begin VB.Frame Frame2 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "¸Ñ±K(&E)"
+      Caption         =   "è§£å¯†(&E)"
       ForeColor       =   &H80000008&
       Height          =   735
       Left            =   120
@@ -90,7 +90,7 @@ Begin VB.Form Main
       Top             =   120
       Width           =   4695
       Begin VB.CommandButton Command1 
-         Caption         =   "¸Ñ±K(&R)"
+         Caption         =   "è§£å¯†(&R)"
          Height          =   375
          Left            =   3720
          TabIndex        =   4
@@ -98,7 +98,7 @@ Begin VB.Form Main
          Width           =   855
       End
       Begin VB.TextBox Text1 
-         Appearance      =   0  '¥­­±
+         Appearance      =   0  'å¹³é¢
          BeginProperty Font 
             Name            =   "YaHei Consolas Hybrid"
             Size            =   12
@@ -109,7 +109,7 @@ Begin VB.Form Main
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         IMEMode         =   3  '¼È¤î
+         IMEMode         =   3  'æš«æ­¢
          Left            =   1200
          PasswordChar    =   "?"
          TabIndex        =   3
@@ -117,22 +117,22 @@ Begin VB.Form Main
          Width           =   2415
       End
       Begin VB.Label Label1 
-         Appearance      =   0  '¥­­±
+         Appearance      =   0  'å¹³é¢
          BackColor       =   &H80000005&
-         Caption         =   "±K½X(&P)¡G"
+         Caption         =   "å¯†ç¢¼(&P)ï¼š"
          ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
          TabIndex        =   5
-         ToolTipText     =   "¦¹³B»İ¿é¤J±K½X¦Ó«D²£¥Í®Éªº±KÆ_¡I"
+         ToolTipText     =   "æ­¤è™•éœ€è¼¸å…¥å¯†ç¢¼è€Œéç”¢ç”Ÿæ™‚çš„å¯†é‘°ï¼"
          Top             =   240
          Width           =   975
       End
    End
    Begin VB.Frame Frame1 
-      Appearance      =   0  '¥­­±
+      Appearance      =   0  'å¹³é¢
       BackColor       =   &H80000005&
-      Caption         =   "¨ä¥L°Ê§@(&D)"
+      Caption         =   "å…¶ä»–å‹•ä½œ(&D)"
       ForeColor       =   &H80000008&
       Height          =   1455
       Left            =   120
@@ -140,7 +140,7 @@ Begin VB.Form Main
       Top             =   960
       Width           =   1935
       Begin VB.CommandButton Command2 
-         Caption         =   "­×§ï±K½X(&C)"
+         Caption         =   "ä¿®æ”¹å¯†ç¢¼(&C)"
          Height          =   495
          Left            =   120
          TabIndex        =   6
@@ -148,46 +148,46 @@ Begin VB.Form Main
          Width           =   1695
       End
       Begin VB.CommandButton MkPwdTxt 
-         Caption         =   "²£¥Í·sºÏºĞ¾÷(&P)"
+         Caption         =   "ç”¢ç”Ÿæ–°ç£ç¢Ÿæ©Ÿ(&P)"
          Height          =   495
          Left            =   120
          TabIndex        =   1
-         ToolTipText     =   "²£¥Í±a±K½XªººÏºĞ¾÷"
+         ToolTipText     =   "ç”¢ç”Ÿå¸¶å¯†ç¢¼çš„ç£ç¢Ÿæ©Ÿ"
          Top             =   240
          Width           =   1695
       End
    End
    Begin VB.Menu key 
-      Caption         =   "±KÆ_(&K)"
+      Caption         =   "å¯†é‘°(&K)"
       Begin VB.Menu MakeKey 
-         Caption         =   "²£¥Í±KÆ_(&M)"
+         Caption         =   "ç”¢ç”Ÿå¯†é‘°(&M)"
          Shortcut        =   ^M
       End
       Begin VB.Menu ChangePWD 
-         Caption         =   "§ó§ï±K½X(&C)"
+         Caption         =   "æ›´æ”¹å¯†ç¢¼(&C)"
       End
       Begin VB.Menu dash 
          Caption         =   "-"
       End
       Begin VB.Menu Return 
-         Caption         =   "­«·sÅª¨ú±KÆ_(&R)"
+         Caption         =   "é‡æ–°è®€å–å¯†é‘°(&R)"
          Shortcut        =   {F5}
       End
       Begin VB.Menu ForgotPWD 
-         Caption         =   "§Ñ°O±K½X(&F)"
+         Caption         =   "å¿˜è¨˜å¯†ç¢¼(&F)"
          Shortcut        =   ^F
       End
    End
    Begin VB.Menu Helper 
-      Caption         =   "»¡©ú(&H)"
+      Caption         =   "èªªæ˜(&H)"
       Begin VB.Menu LogFile 
-         Caption         =   "Log°O¿ıÀÉ(&L)"
+         Caption         =   "Logè¨˜éŒ„æª”(&L)"
       End
       Begin VB.Menu dash1 
          Caption         =   "-"
       End
       Begin VB.Menu About 
-         Caption         =   "Ãö©ó(&A)"
+         Caption         =   "é—œæ–¼(&A)"
          Shortcut        =   {F1}
       End
    End
@@ -204,6 +204,42 @@ Dim ExtractInfo As Boolean
 Dim MainWidthAndHeight(1) As Long
 Dim pwdIsNA As Boolean
 
+'
+'                        _oo0oo_
+'                       o8888888o
+'                       88" . "88
+'                       (| -_- |)
+'                       0\  =  /0
+'                     ___/`---'\___
+'                   .' \\|     |// '.
+'                  / \\|||  :  |||// \
+'                 / _||||| -:- |||||- \
+'                |   | \\\  - /// |   |
+'                | \_|  ''\---/''  |_/ |
+'                \  .-\__  '-'  ___/-. /
+'              ___'. .'  /--.--\  `. .'___
+'           ."" '<  `.___\_<|>_/___.' >' "".
+'          | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+'          \  \ `_.   \_ __\ /__ _/   .-` /  /
+'      =====`-.____`.___ \_____/___.-`___.-'=====
+'                        `=---='
+' 
+' 
+'      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+' 
+'            ä½›ç¥–ä¿ä½‘       æ°¸ä¸ç•¶æ©Ÿ     æ°¸ç„¡BUG
+' 
+'        ä½›æ›°:  
+'                å¯«å­—æ¨“é‡Œå¯«å­—é–“ï¼Œå¯«å­—é–“é‡Œç¨‹å¼å“¡ï¼›  
+'                ç¨‹å¼äººå“¡å¯«ç¨‹å¼ï¼Œåˆæ‹¿ç¨‹å¼æ›é…’éŒ¢ã€‚  
+'                é…’é†’åªåœ¨ç¶²ä¸Šåï¼Œé…’é†‰é‚„ä¾†ç¶²ä¸‹çœ ï¼›  
+'                é…’é†‰é…’é†’æ—¥å¾©æ—¥ï¼Œç¶²ä¸Šç¶²ä¸‹å¹´å¾©å¹´ã€‚  
+'                ä½†é¡˜è€æ­»é›»è…¦é–“ï¼Œä¸é¡˜é èº¬è€é—†å‰ï¼›  
+'                å¥”é¦³å¯¶é¦¬è²´è€…è¶£ï¼Œå…¬äº¤è‡ªè¡Œç¨‹å¼å“¡ã€‚  
+'                åˆ¥äººç¬‘æˆ‘å¿’ç˜‹ç™²ï¼Œæˆ‘ç¬‘è‡ªå·±å‘½å¤ªè³¤ï¼›  
+'                ä¸è¦‹æ»¿è¡—æ¼‚äº®å¦¹ï¼Œå“ªå€‹æ­¸å¾—ç¨‹å¼å“¡ï¼Ÿ
+'
+
 Private Sub About_Click()
     frmAbout.Show
 End Sub
@@ -211,25 +247,25 @@ End Sub
 Private Sub ChangePWD_Click()
     If ExtractInfo Then
         Dim OldPWD As String
-        OldPWD = InputBox("¿é¤JÂÂ±K½X", "§ó§ï±K½X")
+        OldPWD = InputBox("è¼¸å…¥èˆŠå¯†ç¢¼", "æ›´æ”¹å¯†ç¢¼")
         If OldPWD = UserPWD Then
             Dim newPWD, checkNewPWD, userKey
-            newPWD = InputBox("¿é¤J·s±K½X", "§ó§ï±K½X")
-            checkNewPWD = InputBox("½T»{·s±K½X", "§ó§ï±K½X")
+            newPWD = InputBox("è¼¸å…¥æ–°å¯†ç¢¼", "æ›´æ”¹å¯†ç¢¼")
+            checkNewPWD = InputBox("ç¢ºèªæ–°å¯†ç¢¼", "æ›´æ”¹å¯†ç¢¼")
             If newPWD = checkNewPWD Then
-                MsgBox "­×§ï§¹¦¨¡I", vbInformation
+                MsgBox "ä¿®æ”¹å®Œæˆï¼", vbInformation
                 UserPWD = newPWD
                 newPWD = ""
                 checkNewPWD = ""
                 OldPWD = ""
                 userKey = AscCodePassWord(UserPWD)
-                InputBox "½Æ»s±z§ó§ï«áªº·s±K½X¨Ã¶K¤W¦Üpwd.txtÀÉ®×¤º", "§ó§ï±K½X", UserPWD
-                MsgBox "¦¨¥\²£¥Í±KÆ_¡I" & vbNewLine & "½Ğ±N«İ·|¸õ¥Xªº°T®§¤¤±KÆ_ªº¤å¦rÖß¶K¨ì¥»³nÅé®Ú¥Ø¿ı¡upwd.txt¡v¤¤¡A¦p¦¹¤@¨Ó¡A" & App.Title _
-                & "¤~¥i¥H¥¿±`¦s¨ú¨Ã¸Ñ±K¡A¨Ã¶}±Ò±zªº±K½X¡C" & vbNewLine & "ÁÂÁÂ¡C" & vbNewLine & vbNewLine & "³Æµù¡G¦pªG®Ú¥Ø¿ı¤U¨S¦³pwd.txt¡A½Ğ¦Û¦æ³Ğ«Ø¨Ã¶K¤W±KÆ_¡C", vbInformation
+                InputBox "è¤‡è£½æ‚¨æ›´æ”¹å¾Œçš„æ–°å¯†ç¢¼ä¸¦è²¼ä¸Šè‡³pwd.txtæª”æ¡ˆå…§", "æ›´æ”¹å¯†ç¢¼", UserPWD
+                MsgBox "æˆåŠŸç”¢ç”Ÿå¯†é‘°ï¼" & vbNewLine & "è«‹å°‡å¾…æœƒè·³å‡ºçš„è¨Šæ¯ä¸­å¯†é‘°çš„æ–‡å­—ç²˜è²¼åˆ°æœ¬è»Ÿé«”æ ¹ç›®éŒ„ã€Œpwd.txtã€ä¸­ï¼Œå¦‚æ­¤ä¸€ä¾†ï¼Œ" & App.Title _
+                & "æ‰å¯ä»¥æ­£å¸¸å­˜å–ä¸¦è§£å¯†ï¼Œä¸¦é–‹å•Ÿæ‚¨çš„å¯†ç¢¼ã€‚" & vbNewLine & "è¬è¬ã€‚" & vbNewLine & vbNewLine & "å‚™è¨»ï¼šå¦‚æœæ ¹ç›®éŒ„ä¸‹æ²’æœ‰pwd.txtï¼Œè«‹è‡ªè¡Œå‰µå»ºä¸¦è²¼ä¸Šå¯†é‘°ã€‚", vbInformation
             End If
         End If
     Else
-        MsgBox "¿ù»~¡I" & vbNewLine & "±z©|¥¼¸Ñ±K©Î«Ø¥ßµêÀÀºÏºĞ¡A¸Ñ±K©Î«Ø¥ßµêÀÀºÏºĞ«á¦A¸Õ¸Õ¡C", vbCritical
+        MsgBox "éŒ¯èª¤ï¼" & vbNewLine & "æ‚¨å°šæœªè§£å¯†æˆ–å»ºç«‹è™›æ“¬ç£ç¢Ÿï¼Œè§£å¯†æˆ–å»ºç«‹è™›æ“¬ç£ç¢Ÿå¾Œå†è©¦è©¦ã€‚", vbCritical
     End If
 End Sub
 
@@ -243,7 +279,7 @@ Retry:
     Line Input #1, Str1
     TextForCheckSpace.Text = Str1
     If TextForCheckSpace.Text = "" Or TextForCheckSpace.Text = " " Then
-        MsgBox "¤å¥ó¬°ªÅ¡C", vbInformation
+        MsgBox "æ–‡ä»¶ç‚ºç©ºã€‚", vbInformation
         pwdIsNA = True
         Close #1
     Else
@@ -271,7 +307,7 @@ Retry:
 Error:
     Dim MsgBoxReturnValue
     LogWrite "ReadPWD:Not Found pwd.txt", 1
-    MsgBoxReturnValue = MsgBox("¿ù»~¡IµLªkÅª¨ú¸gASCII¥[±K«á¤§±K½X¤å¥»¡A½Ğ¥ı¶i¦æ±K½X¤å¥»¥[±K¨Ã½T©wÀx¦s©ó" + App.Path + "\pwd.txt«á¦A¦æÅªÀÉ", vbCritical + vbAbortRetryIgnore)
+    MsgBoxReturnValue = MsgBox("éŒ¯èª¤ï¼ç„¡æ³•è®€å–ç¶“ASCIIåŠ å¯†å¾Œä¹‹å¯†ç¢¼æ–‡æœ¬ï¼Œè«‹å…ˆé€²è¡Œå¯†ç¢¼æ–‡æœ¬åŠ å¯†ä¸¦ç¢ºå®šå„²å­˜æ–¼" + App.Path + "\pwd.txtå¾Œå†è¡Œè®€æª”", vbCritical + vbAbortRetryIgnore)
     Select Case MsgBoxReturnValue
         Case vbAbort
             End
@@ -297,14 +333,14 @@ Private Sub Command1_Click()
         If Text1.Text = UserPWD Then
             Shell "cmd.exe /c start " & App.Path & "\About.bat", vbNormalFocus
             LogWrite "Shell 'cmd.exe /c start ' & app.path & ' \ About.bat ', vbNormalFocus"
-            MsgBox "§¹¦¨¡I", vbInformation
+            MsgBox "å®Œæˆï¼", vbInformation
             ExtractInfo = True
         Else
-            MsgBox "±K½X¤£¥¿½T¡I", vbCritical
+            MsgBox "å¯†ç¢¼ä¸æ­£ç¢ºï¼", vbCritical
         End If
     Else
         Dim MsgBoxClickVal
-        MsgBoxClickVal = MsgBox("Äµ§i¡I" & vbNewLine & "©|¥¼«Ø¥ßµêÀÀºÏºĞ¾÷©Î±KÆ_ÀÉ¤w·lÃa¡A¬O§_­««Ø¥ßµêÀÀºÏºĞ¾÷¡H", vbExclamation + vbYesNoCancel)
+        MsgBoxClickVal = MsgBox("è­¦å‘Šï¼" & vbNewLine & "å°šæœªå»ºç«‹è™›æ“¬ç£ç¢Ÿæ©Ÿæˆ–å¯†é‘°æª”å·²æå£ï¼Œæ˜¯å¦é‡å»ºç«‹è™›æ“¬ç£ç¢Ÿæ©Ÿï¼Ÿ", vbExclamation + vbYesNoCancel)
         Select Case MsgBoxClickVal
             Case vbYes
                 MkPwdTxt_Click
@@ -329,8 +365,8 @@ End Sub
 
 Private Sub ForgotPWD_Click()
     Dim RecoverPWD
-    RecoverPWD = MsgBox("©êºp¡I" & vbNewLine & "¬°¤F¸ê°T¦w¥ş¡A§Ú­ÌµLªkÅçÃÒ±z¬°µêÀÀµwºĞ¾Ö¦³ªÌ¡A±z¬O§_Ä@·N§R°£µêÀÀµwºĞ¨Ã­«·s«Ø¥ß¡H", vbYesNo + vbExclamation)
-    LogWrite "'©êºp¡I' & vbNewLine & '¬°¤F¸ê°T¦w¥ş¡A§Ú­ÌµLªkÅçÃÒ±z¬°µêÀÀµwºĞ¾Ö¦³ªÌ¡A±z¬O§_Ä@·N§R°£µêÀÀµwºĞ¨Ã­«·s«Ø¥ß¡H', vbYesNo + vbExclamation"
+    RecoverPWD = MsgBox("æŠ±æ­‰ï¼" & vbNewLine & "ç‚ºäº†è³‡è¨Šå®‰å…¨ï¼Œæˆ‘å€‘ç„¡æ³•é©—è­‰æ‚¨ç‚ºè™›æ“¬ç¡¬ç¢Ÿæ“æœ‰è€…ï¼Œæ‚¨æ˜¯å¦é¡˜æ„åˆªé™¤è™›æ“¬ç¡¬ç¢Ÿä¸¦é‡æ–°å»ºç«‹ï¼Ÿ", vbYesNo + vbExclamation)
+    LogWrite "'æŠ±æ­‰ï¼' & vbNewLine & 'ç‚ºäº†è³‡è¨Šå®‰å…¨ï¼Œæˆ‘å€‘ç„¡æ³•é©—è­‰æ‚¨ç‚ºè™›æ“¬ç¡¬ç¢Ÿæ“æœ‰è€…ï¼Œæ‚¨æ˜¯å¦é¡˜æ„åˆªé™¤è™›æ“¬ç¡¬ç¢Ÿä¸¦é‡æ–°å»ºç«‹ï¼Ÿ', vbYesNo + vbExclamation"
     Select Case RecoverPWD
         Case 7
             LogWrite RecoverPWD, 3
@@ -338,7 +374,7 @@ Private Sub ForgotPWD_Click()
         Case Else
             LogWrite RecoverPWD, 3
     End Select
-    RecoverPWD = MsgBox("½Ğª`·N¡I" & vbNewLine & "­«·s«Ø¥ßµêÀÀµwºĞ«á¡A­ìµwºĞ¤º¤§¸ê°T±N·|³Q²¾°£¡I" & vbNewLine & "¬O§_­n­«»sµwºĞ¡H", vbYesNo + vbExclamation)
+    RecoverPWD = MsgBox("è«‹æ³¨æ„ï¼" & vbNewLine & "é‡æ–°å»ºç«‹è™›æ“¬ç¡¬ç¢Ÿå¾Œï¼ŒåŸç¡¬ç¢Ÿå…§ä¹‹è³‡è¨Šå°‡æœƒè¢«ç§»é™¤ï¼" & vbNewLine & "æ˜¯å¦è¦é‡è£½ç¡¬ç¢Ÿï¼Ÿ", vbYesNo + vbExclamation)
     Select Case RecoverPWD
         Case 7
             Exit Sub
@@ -346,7 +382,7 @@ Private Sub ForgotPWD_Click()
             LogWrite RecoverPWD, 3
     End Select
     Shell "cmd.exe /c " & "rmdir /S /Q D:\RECYCLED\UDrives", vbNormalFocus
-    MsgBox "¿ù»~¡I" & vbNewLine & "µLªk­«·s¶}©l·sµwºĞ¡A¦]¦Ó¥¼§¹¦¨°Ê§@", vbCritical
+    MsgBox "éŒ¯èª¤ï¼" & vbNewLine & "ç„¡æ³•é‡æ–°é–‹å§‹æ–°ç¡¬ç¢Ÿï¼Œå› è€Œæœªå®Œæˆå‹•ä½œ", vbCritical
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -365,7 +401,7 @@ Private Sub MkPwdTxt_Click()
     If pwdIsNA Then
         frmLogin.Show
     Else
-        MsgBox "¿ù»~¡I" & vbNewLine & "¦¹¹q¸£¤w³Ğ«Ø¹LµêÀÀºÏºĞ¾÷¡A¸T¤î­«³Ğ", vbCritical
+        MsgBox "éŒ¯èª¤ï¼" & vbNewLine & "æ­¤é›»è…¦å·²å‰µå»ºéè™›æ“¬ç£ç¢Ÿæ©Ÿï¼Œç¦æ­¢é‡å‰µ", vbCritical
     End If
 End Sub
 
